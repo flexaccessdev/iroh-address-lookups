@@ -27,7 +27,10 @@ iroh-base = { version = "1.0.0", default-features = false, features = ["key"] }
 n0-error = "1.0.0"
 n0-future = "0.3.2"
 n0-watcher = "1"
-swarm-discovery = "0.6"
+# flexaccess fork: upstream master past 0.6.3, for the unreleased fix to the
+# updater GC task spinning every 10ms forever once discovery is dropped
+# (rkuhn/swarm-discovery#27). Back to crates.io once that is published.
+swarm-discovery = { git = "https://github.com/rkuhn/swarm-discovery", rev = "b41dbcc431f419ad0cd91f786d4d7c71ec6be9ce" }
 tokio = { version = "1.49", features = ["rt", "sync"] }
 tokio-stream = { version = "0.1.15", features = ["sync"] }
 tracing = "0.1.44"
